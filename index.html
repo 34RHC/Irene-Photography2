@@ -1,114 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Irene Hace Fotos</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/png" href="favicon.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Irene Hace Fotos - Welcome</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background: #000;
+      font-family: 'Helvetica Neue', sans-serif;
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .backgrounds {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    .bg {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+    }
+
+    .bg.visible {
+      opacity: 1;
+    }
+
+    .center-menu {
+      position: relative;
+      z-index: 10;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .center-menu ul {
+      list-style: none;
+      text-align: center;
+      padding: 0;
+    }
+
+    .center-menu li {
+      font-size: 2.5rem;
+      margin: 1rem 0;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .center-menu li:hover {
+      color: #ff9800;
+    }
+
+    .center-menu li a {
+      color: inherit;
+      text-decoration: none;
+    }
+  </style>
 </head>
 <body>
-  <section id="hero">
-    <div class="hero-overlay">
-      <h1>Irene Hace Fotos</h1>
-      <p>Capturing the sound of a generation through the lens</p>
-      <button onclick="scrollToGallery()">Enter Gallery</button>
-    </div>
-  </section>
-
-  <header>
-    <div class="branding">
-      <h1>Irene Hace Fotos</h1>
-      <p class="subtitle">Photography Portfolio</p>
-    </div>
-    <nav>
-      <ul>
-        <li><a href="#cities">Cities</a></li>
-        <li><a href="#events">Events</a></li>
-        <li><a href="#live">LIVE</a></li>
-        <li><a href="#nightlife">Nightlife</a></li>
-        <li><a href="#portraits">Portraits</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li>
-          <select id="languageSwitcher">
-            <option value="en">EN</option>
-            <option value="es">ES</option>
-          </select>
-        </li>
-      </ul>
-    </nav>
-  </header>
-
-  <main>
-    <section id="cities" class="fade-in" data-gallery="Cities"><h2>Cities</h2><div class="gallery"></div></section>
-    <section id="events" class="fade-in" data-gallery="Events"><h2>Events</h2><div class="gallery"></div></section>
-    <section id="live" class="fade-in" data-gallery="LIVE"><h2>LIVE</h2><div class="gallery"></div></section>
-    <section id="nightlife" class="fade-in" data-gallery="Nightlife"><h2>Nightlife</h2><div class="gallery"></div></section>
-    <section id="portraits" class="fade-in" data-gallery="Portraits"><h2>Portraits</h2><div class="gallery"></div></section>
-
-<section id="about" class="fade-in">
-  <h2>About Me</h2>
-  <div class="about-wrapper">
-    <img src="assets/profile/Irene.jpg" alt="Irene Profile" class="profile-photo">
-    <div class="lang en">
-      <p>I´m Irene, a Spanish photographer based in Bristol/London, specializing in live music/festival photography.</p>
-      <p>I am inspired by how live music and artists nowadays display society and the historical moment of our generation.</p>
-      <p>My photography tries to capture what the artists/music of our generation mean and how they translate what is happening to us, our concerns, our passions, our identities… through their art.</p>
-      <p>I´ve worked for festivals like Love Saves the Day, Forwards, DanceCorp, Bs24/7, and ShadeCartel. Always work with people who are knowledgeable and respectful of the moment and the art we live in.</p>
-    </div>
-    <div class="lang es hidden">
-      <p>Soy Irene, una fotógrafa española afincada en Bristol/Londres, especializada en fotografía de música en directo y festivales.</p>
-      <p>Me inspira cómo la música en vivo y los artistas actuales reflejan la sociedad y el momento histórico de nuestra generación.</p>
-      <p>Mi fotografía intenta capturar lo que los artistas y la música de nuestra generación representan, y cómo traducen lo que nos ocurre: nuestras preocupaciones, pasiones, identidades… a través de su arte.</p>
-      <p>He trabajado para festivales como Love Saves the Day, Forwards, DanceCorp, Bs24/7 y ShadeCartel. Siempre colaboro con personas que valoran y respetan el momento y el arte que estamos viviendo.</p>
-    </div>
-  </div>
-</section>
-
-
-    <section id="contact" class="fade-in">
-      <h2>Contact</h2>
-      <div class="lang en">
-        <p>If you'd like to work together, feel free to reach out!</p>
-        <ul class="contact-list">
-          <li>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></li>
-          <li>Phone: <a href="tel:+123456789">+1 234 567 89</a></li>
-          <li><a href="https://www.instagram.com/irenehacefotos/" class="btn-instagram" target="_blank">Instagram</a></li>
-          <li><a href="https://facebook.com/irenehacefotos" class="btn-facebook" target="_blank">Facebook</a></li>
-        </ul>
-      </div>
-      <div class="lang es hidden">
-        <p>Si quieres colaborar conmigo, ¡no dudes en escribirme!</p>
-        <ul class="contact-list">
-          <li>Correo: <a href="mailto:your.email@example.com">your.email@example.com</a></li>
-          <li>Teléfono: <a href="tel:+123456789">+1 234 567 89</a></li>
-          <li><a href="https://www.instagram.com/irenehacefotos/" class="btn-instagram" target="_blank">Instagram</a></li>
-          <li><a href="https://facebook.com/irenehacefotos" class="btn-facebook" target="_blank">Facebook</a></li>
-        </ul>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <p>&copy; 2025 Irene Hace Fotos. All rights reserved.</p>
-  </footer>
-
-  <div id="lightbox" class="hidden">
-    <span id="closeBtn">&times;</span>
-    <span id="prevBtn">&#10094;</span>
-    <img id="lightboxImage" src="" alt="Preview" />
-    <span id="nextBtn">&#10095;</span>
+  <div class="backgrounds">
+    <div class="bg visible" id="bg-default" style="background-image: url('assets/profile/Irene.jpg');"></div>
+    <div class="bg" id="bg-cities" style="background-image: url('assets/galleries/Cities/palomas.jpg');"></div>
+    <div class="bg" id="bg-events" style="background-image: url('assets/galleries/Events/bs241.jpg');"></div>
+    <div class="bg" id="bg-live" style="background-image: url('assets/galleries/LIVE/BSWN-19.jpg');"></div>
+    <div class="bg" id="bg-portraits" style="background-image: url('assets/galleries/Portraits/_DSC8358.jpg');"></div>
+    <div class="bg" id="bg-contact" style="background-color: #111;"></div>
   </div>
 
-  <div id="backToTop" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">Back to Top</div>
+  <div class="center-menu">
+    <ul>
+      <li data-bg="cities"><a href="main.html#cities">Cities</a></li>
+      <li data-bg="events"><a href="main.html#events">Events</a></li>
+      <li data-bg="live"><a href="main.html#live">LIVE</a></li>
+      <li data-bg="portraits"><a href="main.html#portraits">Portraits</a></li>
+      <li data-bg="contact"><a href="main.html#contact">Contact</a></li>
+    </ul>
+  </div>
 
-  <script src="script.js"></script>
   <script>
-    function scrollToGallery() {
-      document.querySelector('main').scrollIntoView({ behavior: 'smooth' });
-    }
+    const menuItems = document.querySelectorAll('.center-menu li');
+    const backgrounds = document.querySelectorAll('.bg');
+    const defaultBg = document.getElementById('bg-default');
+
+    menuItems.forEach(item => {
+      const bgId = 'bg-' + item.dataset.bg;
+      const bgElement = document.getElementById(bgId);
+
+      item.addEventListener('mouseover', () => {
+        backgrounds.forEach(bg => bg.classList.remove('visible'));
+        if (bgElement) bgElement.classList.add('visible');
+      });
+
+      item.addEventListener('mouseleave', () => {
+        backgrounds.forEach(bg => bg.classList.remove('visible'));
+        if (defaultBg) defaultBg.classList.add('visible');
+      });
+    });
   </script>
 </body>
 </html>

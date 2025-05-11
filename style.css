@@ -1,6 +1,6 @@
-/* General */
+/* GENERAL */
 body {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Helvetica Neue', sans-serif;
   background-color: #111;
   color: #eee;
   margin: 0;
@@ -32,77 +32,93 @@ img {
   border-radius: 10px;
 }
 
-/* Hero */
-#hero {
-  height: 100vh;
-  background: url("assets/galleries/LIVE/BSWN-19.jpg") center/cover no-repeat;
+/* GALERÍA */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1em;
+  margin-top: 2em;
+}
+
+.gallery img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+}
+
+/* LIGHTBOX */
+#lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.95);
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
   opacity: 0;
-  animation: fadeHeroIn 2s ease-out forwards;
-  animation-delay: 0.3s;
+  visibility: hidden;
+  z-index: 9999;
+  transition: opacity 0.3s ease;
 }
 
-@keyframes fadeHeroIn {
-  from {
-    opacity: 0;
-    transform: scale(1.03);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
+#lightbox.visible {
+  opacity: 1;
+  visibility: visible;
 }
 
-.hero-overlay {
-  background-color: rgba(0, 0, 0, 0.65);
-  padding: 2em;
-  border-radius: 12px;
-  text-align: center;
-  color: white;
+#lightbox img {
   max-width: 90%;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeOverlay 1.5s ease-out forwards;
-  animation-delay: 1s;
+  max-height: 90%;
+  border-radius: 12px;
+  box-shadow: 0 0 20px #000;
 }
 
-@keyframes fadeOverlay {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.hero-overlay h1 {
-  font-size: 3rem;
-  margin-bottom: 0.5em;
-}
-
-.hero-overlay p {
-  font-size: 1.2rem;
-  margin-bottom: 1.5em;
-}
-
-.hero-overlay button {
-  background-color: #ff9800;
-  color: #111;
-  padding: 0.8em 1.5em;
-  font-size: 1rem;
-  border: none;
-  border-radius: 8px;
+#closeBtn, #prevBtn, #nextBtn {
+  position: absolute;
+  color: white;
+  font-size: 2.5rem;
   cursor: pointer;
+  user-select: none;
   font-weight: bold;
-  transition: background-color 0.3s ease;
 }
 
-.hero-overlay button:hover {
-  background-color: #ffa726;
+#closeBtn { top: 20px; right: 30px; }
+#prevBtn { left: 30px; top: 50%; transform: translateY(-50%); }
+#nextBtn { right: 30px; top: 50%; transform: translateY(-50%); }
+
+#prevBtn:hover, #nextBtn:hover, #closeBtn:hover {
+  color: #ff9800;
 }
 
-/* Header y nav */
+/* BACK TO TOP */
+#backToTop {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #ff9800;
+  color: #111;
+  padding: 0.6em 1em;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  display: none;
+  z-index: 999;
+}
+
+#backToTop:hover {
+  background: #ffa726;
+}
+
+/* NAV Y HEADER */
 header {
   text-align: center;
   padding: 2em 1em;
@@ -139,22 +155,22 @@ select#languageSwitcher {
   border-radius: 4px;
 }
 
-/* Galerías */
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1em;
-  margin-top: 2em;
+/* ABOUT */
+.about-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 2em;
 }
 
-.gallery img:hover {
-  transform: scale(1.05);
-  cursor: pointer;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.5);
-  transition: transform 0.3s ease;
+.profile-photo {
+  width: 200px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
-/* Contacto y redes */
+/* CONTACT */
 .contact-list {
   list-style: none;
   padding: 0;
@@ -204,7 +220,7 @@ select#languageSwitcher {
   background: #145dbf;
 }
 
-/* Footer */
+/* FOOTER */
 footer {
   text-align: center;
   padding: 2em 1em;
@@ -214,71 +230,7 @@ footer {
   color: #aaa;
 }
 
-/* Lightbox */
-#lightbox {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.95);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease;
-}
-
-#lightbox.visible {
-  opacity: 1;
-  visibility: visible;
-}
-
-#lightbox img {
-  max-width: 90%;
-  max-height: 90%;
-  border-radius: 12px;
-  box-shadow: 0 0 20px #000;
-}
-
-#closeBtn, #prevBtn, #nextBtn {
-  position: absolute;
-  color: white;
-  font-size: 2.5rem;
-  cursor: pointer;
-  user-select: none;
-}
-
-#closeBtn { top: 20px; right: 30px; }
-#prevBtn { left: 30px; top: 50%; transform: translateY(-50%); }
-#nextBtn { right: 30px; top: 50%; transform: translateY(-50%); }
-
-#prevBtn:hover, #nextBtn:hover, #closeBtn:hover {
-  color: #ff9800;
-}
-
-/* Botón volver arriba */
-#backToTop {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  background: #ff9800;
-  color: #111;
-  padding: 0.6em 1em;
-  border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
-  display: none;
-  z-index: 999;
-}
-
-#backToTop:hover {
-  background: #ffa726;
-}
-
-/* Utilidades */
+/* UTILIDADES */
 .hidden {
   display: none;
 }
@@ -286,47 +238,21 @@ footer {
 html {
   scroll-behavior: smooth;
 }
-/* Hero animation (restaurada) */
-#hero {
-  opacity: 0;
-  animation: fadeHeroIn 2s ease-out forwards;
-  animation-delay: 0.3s;
+
+.back-button {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: rgba(0,0,0,0.7);
+  color: #fff;
+  padding: 0.5em 1em;
+  border-radius: 6px;
+  z-index: 9999;
+  text-decoration: none;
+  font-weight: bold;
 }
 
-@keyframes fadeHeroIn {
-  from {
-    opacity: 0;
-    transform: scale(1.03);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-.hero-overlay {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeOverlay 1.5s ease-out forwards;
-  animation-delay: 1s;
-}
-
-@keyframes fadeOverlay {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-.about-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  gap: 2em;
-}
-
-.profile-photo {
-  width: 200px;
-  height: auto;
-  border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+.back-button:hover {
+  background: #ff9800;
+  color: #111;
 }

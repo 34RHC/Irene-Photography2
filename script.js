@@ -1,4 +1,3 @@
-
 const texts = {
   en: {
     cities: 'Cities',
@@ -20,20 +19,23 @@ const texts = {
   }
 };
 
+// Cambiar idioma
 const switcher = document.getElementById('languageSwitcher');
-switcher.addEventListener('change', (e) => {
-  const lang = e.target.value;
-  document.querySelectorAll('section').forEach(section => {
-    const id = section.id;
-    if (texts[lang][id]) {
-      section.querySelector('h2').textContent = texts[lang][id];
-    }
+if (switcher) {
+  switcher.addEventListener('change', (e) => {
+    const lang = e.target.value;
+    document.querySelectorAll('section').forEach(section => {
+      const id = section.id;
+      if (texts[lang][id]) {
+        section.querySelector('h2').textContent = texts[lang][id];
+      }
+    });
+    document.querySelectorAll('.lang').forEach(el => el.classList.add('hidden'));
+    document.querySelectorAll(`.lang.${lang}`).forEach(el => el.classList.remove('hidden'));
   });
-  document.querySelectorAll('.lang').forEach(el => el.classList.add('hidden'));
-  document.querySelectorAll(`.lang.${lang}`).forEach(el => el.classList.remove('hidden'));
-});
+}
 
-// Load gallery images
+// Cargar galería desde JSON
 fetch('images.json')
   .then(res => res.json())
   .then(data => {
@@ -52,18 +54,7 @@ fetch('images.json')
     });
   });
 
-// Fade-in animation on scroll
-const sections = document.querySelectorAll('section');
-const sectionObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
-  });
-}, { threshold: 0.1 });
-sections.forEach(section => sectionObserver.observe(section));
-
-// Lightbox functionality
+// Lightbox
 const lightbox = document.getElementById('lightbox');
 const lightboxImage = document.getElementById('lightboxImage');
 const closeBtn = document.getElementById('closeBtn');
@@ -109,12 +100,11 @@ document.addEventListener('keydown', (e) => {
   showImage();
 });
 
-// Show Back to Top button
+// Botón scroll arriba
 const backToTop = document.getElementById('backToTop');
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 300) {
-    backToTop.style.display = 'block';
-  } else {
-    backToTop.style.display = 'none';
-  }
-});
+if (backToTop) {
+  window.addEventListener('scroll', () => {
+    backToTop.style.display = window.scrollY > 300 ? 'block' : 'none';
+  });
+  backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+}

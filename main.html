@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Irene Hace Fotos - Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <a href="index.html" class="back-button">← Home</a>
+
+  <header>
+    <h1>Irene Hace Fotos</h1>
+    <select id="languageSwitcher">
+      <option value="en" selected>English</option>
+      <option value="es">Español</option>
+    </select>
+    <nav>
+      <ul>
+        <li><a href="#cities">Cities</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#live">LIVE</a></li>
+        <li><a href="#nightlife">Nightlife</a></li>
+        <li><a href="#portraits">Portraits</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="cities" class="fade-in" data-gallery="Cities">
+      <h2>Cities</h2>
+      <div class="gallery"></div>
+    </section>
+
+    <section id="events" class="fade-in" data-gallery="Events">
+      <h2>Events</h2>
+      <div class="gallery"></div>
+    </section>
+
+    <section id="live" class="fade-in" data-gallery="LIVE">
+      <h2>LIVE</h2>
+      <div class="gallery"></div>
+    </section>
+
+    <section id="nightlife" class="fade-in" data-gallery="Nightlife">
+      <h2>Nightlife</h2>
+      <div class="gallery"></div>
+    </section>
+
+    <section id="portraits" class="fade-in" data-gallery="Portraits">
+      <h2>Portraits</h2>
+      <div class="gallery"></div>
+    </section>
+
+    <section id="about" class="fade-in">
+      <h2>About Me</h2>
+      <div class="about-wrapper">
+        <img src="assets/profile/Irene.jpg" alt="Irene" class="profile-photo">
+        <div class="lang en">
+          <p>I’m Irene, a Spanish photographer based in Bristol/London, specializing in live music and festival photography.</p>
+          <p>I'm inspired by how music and artists reflect the current state of our generation. My photography captures what they mean to us — our concerns, passions, and identities.</p>
+          <p>I’ve worked for festivals like Love Saves the Day, Forwards, DanceCorp, BS24/7 and ShadeCartel.</p>
+        </div>
+        <div class="lang es hidden">
+          <p>Soy Irene, fotógrafa española afincada en Bristol/Londres, especializada en fotografía de música en directo y festivales.</p>
+          <p>Me inspiran los artistas y cómo reflejan nuestra generación. Mi fotografía captura lo que significan para nosotros: nuestras pasiones, preocupaciones e identidades.</p>
+          <p>He trabajado para festivales como Love Saves the Day, Forwards, DanceCorp, BS24/7 y ShadeCartel.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="fade-in">
+      <h2>Contact</h2>
+      <ul class="contact-list">
+        <li>Email: <a href="mailto:irene@example.com">irene@example.com</a></li>
+        <li><a href="https://www.instagram.com/irenehacefotos" target="_blank" class="btn-instagram">Instagram</a></li>
+        <li><a href="https://www.facebook.com/irenehacefotos" target="_blank" class="btn-facebook">Facebook</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <div id="lightbox">
+    <span id="closeBtn">✕</span>
+    <span id="prevBtn">←</span>
+    <img id="lightboxImage" src="" alt="Enlarged photo" />
+    <span id="nextBtn">→</span>
+  </div>
+
+  <div id="backToTop">↑</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
